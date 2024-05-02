@@ -44,7 +44,7 @@ export async function POST(request) {
   let json = await request.json();
   let { kaId } = json;
   kaId = parseInt(kaId);
-
+  console.log(kaId);
   let ka = await prisma.ka.findFirst({ where: { id: kaId } });
   if (!ka) {
     return Response.json({
