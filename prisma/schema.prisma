@@ -27,15 +27,18 @@ model Ka {
 }
 
 model Order {
-  id        Int      @id @default(autoincrement())
-  ka        Ka       @relation(fields: [kaId], references: [id])
+  id        Int       @id @default(autoincrement())
+  ka        Ka        @relation(fields: [kaId], references: [id])
   kaId      Int
   hash      String
   hours     String
   price     String
-  payed     Boolean  @default(false)
+  payed     Boolean   @default(false)
   address   String
-  createdAt DateTime @default(now())
+  createdAt DateTime  @default(now())
+  code      String
+  used      Boolean   @default(false)
+  usedAt    DateTime?
 
   @@unique([hours, price])
 }
