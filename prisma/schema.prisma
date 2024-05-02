@@ -20,6 +20,9 @@ model Ka {
   Order         Order[]
   loopStartTime DateTime @default(now())
   currentNo     Int      @default(0)
+
+  // 商品库中不能有相同价格
+  @@unique([price])
 }
 
 model Order {
