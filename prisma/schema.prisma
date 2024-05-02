@@ -14,22 +14,28 @@ datasource db {
 }
 
 model Ka {
-  id            Int      @id @default(autoincrement())
-  title         String
-  price         Float
-  Order         Order[]
-  loopStartTime DateTime @default(now())
-  currentNo     Int      @default(0)
-  show          Boolean  @default(true)
+  id          Int     @id @default(autoincrement())
+  title       String
+  price       Float
+  Order       Order[]
+  currentNo   Int     @default(0)
+  currentHour String  @default("")
+  show        Boolean @default(true)
 
   // 商品库中不能有相同价格
   @@unique([price])
 }
 
 model Order {
-  id    Int     @id @default(autoincrement())
-  ka    Ka      @relation(fields: [kaId], references: [id])
-  kaId  Int
-  no    Int
-  payed Boolean @default(false)
+  id        Int      @id @default(autoincrement())
+  ka        Ka       @relation(fields: [kaId], references: [id])
+  kaId      Int
+  hash      String
+  hours     String
+  price     String
+  payed     Boolean  @default(false)
+  address   String
+  createdAt DateTime @default(now())
+
+  @@unique([hours, price])
 }

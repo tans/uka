@@ -3,7 +3,7 @@ import { NextRequest } from "next/server";
 import _ from "lodash";
 
 export async function GET(request) {
-  let list = await prisma.ka.findMany({});
+  let list = await prisma.ka.findMany({ orderBy: { price: "asc" } });
   return Response.json({ status: true, list });
 }
 
