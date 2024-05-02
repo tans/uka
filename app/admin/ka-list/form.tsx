@@ -25,13 +25,13 @@ export default function KaForm(props) {
   return (
     <>
       <Drawer>
-        <DrawerTrigger>{...props.children}</DrawerTrigger>
+        <DrawerTrigger>{props.children}</DrawerTrigger>
         <DrawerContent>
           <DrawerHeader>
-            <DrawerTitle>{form.id ? "创建商品" : "修改商品"}</DrawerTitle>
+            <DrawerTitle>{form.id ? "修改商品" : "创建商品"}</DrawerTitle>
             <DrawerDescription>
               <div>
-                <div>商品标题</div>
+                <div className="mt-2">商品标题</div>
                 <Input
                   value={form.title}
                   type="text"
@@ -40,7 +40,7 @@ export default function KaForm(props) {
                     setForm({ ...form });
                   }}
                 ></Input>
-                <div>商品价格</div>
+                <div className="mt-2">商品价格</div>
                 <Input
                   value={form.price}
                   type="number"
@@ -55,13 +55,13 @@ export default function KaForm(props) {
           <DrawerFooter>
             <Button
               onClick={async () => {
-                console.log(form);
                 let { status } = await (
-                  await fetch("/admin/ka", {
+                  await fetch("/admin/api/ka", {
                     method: "POST",
                     body: JSON.stringify(form),
                   })
                 ).json();
+                location.reload();
               }}
             >
               提交

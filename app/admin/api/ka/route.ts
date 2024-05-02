@@ -10,14 +10,18 @@ export async function GET(request) {
 export async function POST(request: NextRequest) {
   let json = await request.json();
 
+  let data = {
+    title: json.title,
+    price: parseFloat(json.price),
+  };
   if (json.id) {
     await prisma.ka.update({
       where: { id: json.id },
-      data: _.pick(json, ["title", "price"]),
+      data,
     });
   } else {
     await prisma.ka.create({
-      data: _.pick(json, ["title", "price"]),
+      data,
     });
   }
 
