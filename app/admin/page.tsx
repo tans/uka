@@ -20,7 +20,8 @@ export default async function (props) {
           <div className="font-black text-lg">数据汇总：</div>
 
           <div className="">销售额：{payedAmount}</div>
-          <div className="">销售数：{kaCount}</div>
+          <div className="">成交数：{payedCount}</div>
+          <div className="">下单数：{orderCount}</div>
           <div className="">兑换数：{usedCount}</div>
           <div className="">套餐数：{kaCount}</div>
         </div>
