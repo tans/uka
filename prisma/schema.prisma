@@ -36,9 +36,25 @@ model Order {
   payed     Boolean   @default(false)
   address   String
   createdAt DateTime  @default(now())
-  code      String
+  code      String?
   used      Boolean   @default(false)
   usedAt    DateTime?
+  Tx        Tx?
+  txId      Int?
 
   @@unique([hours, price])
+  @@unique([hash])
+  @@unique([code])
+}
+
+model Tx {
+  id      Int     @id @default(autoincrement())
+  hash    String
+  // meta    Json
+  checked Boolean @default(false)
+  order   Order?  @relation(fields: [orderId], references: [id])
+  orderId Int?
+
+  @@unique([orderId])
+  @@unique([hash])
 }
