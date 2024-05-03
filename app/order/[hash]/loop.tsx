@@ -5,7 +5,7 @@ import { useEffect } from "react";
 export default function ({ payed, hash }) {
   useEffect(function () {
     if (!payed) {
-      setTimeout(function () {
+      setInterval(function () {
         fetch("/api/check-pay", {
           method: "POST",
           body: JSON.stringify({
