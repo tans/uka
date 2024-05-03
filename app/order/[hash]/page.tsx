@@ -52,27 +52,30 @@ export default async function ({ searchParams, params }) {
           </div>
         </div>
 
-        <div className="flex items-center">
-          收款地址: &nbsp;
+        <div className="bg-gray-50 p-4 rounded border shadow-sm">
+          <div className="my-2 text-xl">收款地址: &nbsp;</div>
+          <div className="font-black text-gray-600 mr-2">{order.address}</div>
           <CopyButton text={order.address}>
             <CopyIcon></CopyIcon>
+            复制
           </CopyButton>
         </div>
-        <div className="flex items-start">
-          <div className="font-black text-gray-600 mr-2">{order.address}</div>
-        </div>
 
-        <div className="leading-10 text-lg">
-          <div className="mt-8 flex items-center">
+        <div className="bg-gray-50 p-4 rounded border shadow-sm mt-4">
+          <div className="my-2 text-xl">支付金额:</div>
+          <div className="flex items-center">
             <div>套餐: </div>
             <div>{order.ka.title}</div>
           </div>
 
           <div className="flex items-center">
-            <div>支付金额:</div>
             <div className="text-red-800 font-black mr-4">{order.price} U</div>
-            <CopyButton text={order.price}>复制</CopyButton>
           </div>
+
+          <CopyButton text={order.price}>
+            <CopyIcon></CopyIcon>
+            复制
+          </CopyButton>
         </div>
 
         <div className="mt-4 text-blue-900 flex items-center">
