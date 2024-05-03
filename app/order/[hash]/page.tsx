@@ -5,6 +5,7 @@ import dayjs from "dayjs";
 import { BNB, USDT } from "ccy-icons";
 import CopyButton from "./copy-button";
 import { CopyIcon, UpdateIcon } from "@radix-ui/react-icons";
+import Loop from "./loop";
 
 export default async function ({ searchParams, params }) {
   let { hash } = params;
@@ -22,6 +23,7 @@ export default async function ({ searchParams, params }) {
   return (
     <>
       <Container>
+        <Loop payed={order.payed} hash={order.hash}></Loop>
         {!order.payed && (
           <>
             <div className="text-center text-gray-800 font-black py-4">
@@ -68,7 +70,7 @@ export default async function ({ searchParams, params }) {
 
           <div className="flex items-center">
             <div>支付金额:</div>
-            <div className="text-red-800 font-black mr-4">{order.price}</div>
+            <div className="text-red-800 font-black mr-4">{order.price} U</div>
             <CopyButton text={order.price}>复制</CopyButton>
           </div>
         </div>
