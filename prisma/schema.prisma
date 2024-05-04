@@ -21,6 +21,7 @@ model Ka {
   currentNo   Int     @default(0)
   currentHour String  @default("")
   show        Boolean @default(true)
+  quota       Int     @default(0)
 
   // 商品库中不能有相同价格
   @@unique([price])
@@ -36,7 +37,6 @@ model Order {
   payed     Boolean   @default(false)
   address   String
   createdAt DateTime  @default(now())
-  code      String?
   used      Boolean   @default(false)
   usedAt    DateTime?
   Tx        Tx?
@@ -44,7 +44,18 @@ model Order {
 
   @@unique([hours, price])
   @@unique([hash])
-  @@unique([code])
+}
+
+model Manual {
+  id        Int       @id @default(autoincrement())
+  hash      String
+  quota     Int
+  createdAt DateTime  @default(now())
+  used      Boolean   @default(false)
+  usedAt    DateTime?
+  log       String?
+
+  @@unique([hash])
 }
 
 model Tx {

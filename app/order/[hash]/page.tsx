@@ -47,7 +47,7 @@ export default async function ({ searchParams, params }) {
           </>
         )}
 
-        <div className="my-4 bg-gray-50 p-4">
+        <div className="my-4 bg-gray-50 p-4 rounded-md">
           <div>注意事项：</div>
           <div>1. 复制金额和地址到钱包进行转账</div>
           <div>2. 请确认小数准确, 否则无法自动确认交易。</div>
@@ -57,8 +57,10 @@ export default async function ({ searchParams, params }) {
           </div>
         </div>
 
-        <div className="bg-gray-50 p-4 rounded border shadow-sm">
-          <div className="my-2 text-xl">收款地址: &nbsp;</div>
+        <div className="bg-gray-50 p-4 rounded-md border shadow-sm">
+          <div className="my-2 text-gray-500 font-bold text-xl">
+            收款地址: &nbsp;
+          </div>
           <div className="font-black text-gray-600 mr-2">{order.address}</div>
 
           {!order.payed && (
@@ -69,8 +71,8 @@ export default async function ({ searchParams, params }) {
           )}
         </div>
 
-        <div className="bg-gray-50 p-4 rounded border shadow-sm mt-4">
-          <div className="my-2 text-xl">支付金额:</div>
+        <div className="bg-gray-50 p-4 rounded-md border shadow-sm mt-4">
+          <div className="my-2 text-gray-500 font-bold text-xl">支付金额:</div>
           <div className="flex items-center">
             <div>套餐: </div>
             <div>{order.ka.title}</div>

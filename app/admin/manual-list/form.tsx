@@ -15,11 +15,11 @@ import {
 } from "@/components/ui/drawer";
 import { useState } from "react";
 
-export default function KaForm(props) {
+export default function (props) {
   let [form, setForm] = useState(
-    props.ka || {
-      price: 1,
-      title: "",
+    props.manual || {
+      quota: 1,
+      log: "",
     },
   );
   return (
@@ -28,24 +28,14 @@ export default function KaForm(props) {
         <DrawerTrigger>{props.children}</DrawerTrigger>
         <DrawerContent>
           <DrawerHeader>
-            <DrawerTitle>{form.id ? "修改商品" : "创建商品"}</DrawerTitle>
             <DrawerDescription>
               <div>
-                <div className="mt-2">套餐标题</div>
+                <div className="mt-2">备注</div>
                 <Input
-                  value={form.title}
+                  value={form.log}
                   type="text"
                   onChange={(e) => {
-                    form.title = e.target.value;
-                    setForm({ ...form });
-                  }}
-                ></Input>
-                <div className="mt-2">套餐价格</div>
-                <Input
-                  value={form.price}
-                  type="number"
-                  onChange={(e) => {
-                    form.price = e.target.value;
+                    form.log = e.target.value;
                     setForm({ ...form });
                   }}
                 ></Input>
@@ -65,7 +55,7 @@ export default function KaForm(props) {
             <Button
               onClick={async () => {
                 let { status } = await (
-                  await fetch("/admin/api/ka", {
+                  await fetch("/admin/api/manual", {
                     method: "POST",
                     body: JSON.stringify(form),
                   })

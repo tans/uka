@@ -1,14 +1,14 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import KaForm from "./form";
+import ManualForm from "./form";
 import { Button, buttonVariants } from "@/components/ui/button";
 
-export default function KaList(props) {
+export default function (props) {
   let [list, setList] = useState([]);
   useEffect(function () {
     (async function () {
-      let { list } = await (await fetch("/admin/api/ka")).json();
+      let { list } = await (await fetch("/admin/api/manual")).json();
       setList(list);
     })();
   }, []);
@@ -19,13 +19,14 @@ export default function KaList(props) {
           key={item.id}
           className="w-full py-1 px-2 my-2 bg-gray-50 rounded-md flex items-center"
         >
-          <div className="flex-1">{item.title}</div>
-          <div className="w-20">
-            {item.quota}/{item.price}u
+          <div className="flex-1">{item.log}</div>
+          <div className="w-20">{item.quota} </div>
+          <div className="w-8">
+            {item.used && <CheckIcon className="w-6 h-6"></CheckIcon>}
           </div>
-          <KaForm ka={item}>
+          <ManualForm manual={item}>
             <div className={buttonVariants()}>修改</div>
-          </KaForm>
+          </ManualForm>
         </div>
       ))}
     </>

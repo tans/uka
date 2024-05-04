@@ -24,6 +24,9 @@ export default function (props) {
         <MenubarTrigger data-state={current == "ka" ? "open" : "closed"}>
           <Link href={"/admin/ka-list"}>套餐</Link>
         </MenubarTrigger>
+        <MenubarTrigger data-state={current == "manual" ? "open" : "closed"}>
+          <Link href={"/admin/manual-list"}>手发</Link>
+        </MenubarTrigger>
       </MenubarMenu>
     </Menubar>
   );

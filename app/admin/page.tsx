@@ -25,6 +25,9 @@ export default async function (props) {
           <div className="">兑换数：{usedCount}</div>
           <div className="">套餐数：{kaCount}</div>
         </div>
+        <a href="/shop" className="mt-8 p-4 block text-blue-800 underline">
+          查看下单
+        </a>
       </Container>
     </>
   );
