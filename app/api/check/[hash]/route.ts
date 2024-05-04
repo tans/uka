@@ -2,6 +2,8 @@ import prisma from "@/lib/prisma";
 
 export async function GET(request, ctx) {
   let { hash } = ctx.params;
+
+  hash = hash.replace("key-", "");
   if (hash.startsWith("m-")) {
     hash = hash.replace("m-", "");
     let manual = await prisma.manual.findFirst({
