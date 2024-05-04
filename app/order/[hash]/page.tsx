@@ -57,11 +57,13 @@ export default async function ({ searchParams, params }) {
           </div>
         </div>
 
-        <div className="bg-gray-50 p-4 rounded-md border shadow-sm">
-          <div className="my-2 text-gray-500 font-bold text-xl">
+        <div className="bg-gray-50 p-4 rounded-md overflow-hidden border shadow-sm">
+          <div className="my-2  text-gray-500 font-bold text-lg">
             收款地址: &nbsp;
           </div>
-          <div className="font-black text-gray-600 mr-2">{order.address}</div>
+          <div className="break-all w-full font-black text-gray-600 mr-2">
+            {order.address}
+          </div>
 
           {!order.payed && (
             <CopyButton text={order.address}>
@@ -72,7 +74,7 @@ export default async function ({ searchParams, params }) {
         </div>
 
         <div className="bg-gray-50 p-4 rounded-md border shadow-sm mt-4">
-          <div className="my-2 text-gray-500 font-bold text-xl">支付金额:</div>
+          <div className="my-2 text-gray-500 font-bold text-lg">支付金额:</div>
           <div className="flex items-center">
             <div>套餐: </div>
             <div>{order.ka.title}</div>
