@@ -4,7 +4,15 @@ export default function () {
   return (
     <>
       <Container>
-        <div className="font-black my-8">UKA - 开源加密货币支付发卡系统</div>
+        <div className="font-black my-8 text-center">
+          UKA
+          <div> 开源USDT支付系统</div>
+        </div>
+
+        <img
+          src="/screenshot.jpg"
+          className="w-full rounded-sm shadow border my-4 max-w-96 mx-auto"
+        />
         <div className="mt-4 font-black">系统特点：</div>
         <div>1. 开箱默认支持BSC的USDT</div>
         <div>2. 可定制多链多币种</div>

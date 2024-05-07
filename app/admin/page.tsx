@@ -1,6 +1,7 @@
 import Container from "@/components/app/container";
 import Navbar from "./navbar";
 import prisma from "@/lib/prisma";
+import { buttonVariants } from "@/components/ui/button";
 
 export default async function (props) {
   let kaCount = await prisma.ka.count();
@@ -25,8 +26,9 @@ export default async function (props) {
           <div className="">兑换数：{usedCount}</div>
           <div className="">套餐数：{kaCount}</div>
         </div>
-        <a href="/shop" className="mt-8 p-4 block text-blue-800 underline">
-          查看下单
+        <br />
+        <a href="/shop" className={buttonVariants({})}>
+          收银台
         </a>
       </Container>
     </>
