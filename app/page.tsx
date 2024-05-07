@@ -32,8 +32,11 @@ export default function () {
         </div>
         <div>admin - 123456</div>
 
-        <div>
-          <a href="https://github.com/tans/uka" className="underline">
+        <div className="mt-4">
+          <a
+            href="https://github.com/tans/uka"
+            className="font-black underline"
+          >
             github
           </a>
         </div>
